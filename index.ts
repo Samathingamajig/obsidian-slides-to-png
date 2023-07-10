@@ -46,8 +46,6 @@ if (!safeArgs.success) {
 
 const args = safeArgs.data;
 
-console.log(args);
-
 const browser = await chromium.launch();
 const context = await browser.newContext({
   ...devices["Desktop Chrome"],
@@ -59,9 +57,9 @@ const context = await browser.newContext({
 const page = await context.newPage();
 await page.goto(args.url);
 
-await page.waitForSelector(".drop:not(.slide-background)");
+await page.waitForSelector(".slides > :not(.slide-background)");
 
-const totalSlides = (await page.$$(".drop:not(.slide-background)")).length;
+const totalSlides = (await page.$$(".slides > :not(.slide-background)")).length;
 const totalSlidesCharLength = String(totalSlides).length;
 
 for (let slide = 1; slide <= totalSlides; slide++) {
