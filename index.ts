@@ -6,7 +6,7 @@ import path from "node:path";
 const program = new Command();
 
 program
-  .option("-w, --width <width>", "Width of the output", Number, 1280)
+  .option("-w, --width <width>", "Width of the output", Number, 1920)
   .option("-h, --height <height>", "Height of the output, -1 defaults to 16 by 9 ratio of width", Number, -1)
   .option("-o, --output-dir <output-dir>", "Output directory", String, "slides")
   .argument("[url]", "URL to process", String, "http://localhost:3000")
